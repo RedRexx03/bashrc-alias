@@ -3,7 +3,7 @@ A simple tool to deliver a poisoned bashrc to a victim machine
 Installs an insecure version of root's .bashrc file with alias for ls and cd. currently, ls stops sshd, and cd creates a readteam user, then does the specified command.
 
 
-You can change the payload of the attack by editing the command before > /dev/null in the .bashrc script on line 93 and 300.
+You can change the payload of the attack by editing the command before > /dev/null in the .bashrc script on line 93 and 200.
 
 # How to use
 Step 1: deploy/install to host (only if not installed on host)
